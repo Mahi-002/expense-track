@@ -1,5 +1,5 @@
 const userModel = require('../models/userModel');
-
+const bcrypt = require('bcrypt');
 // Controller to handle rendering the index page
 const renderHomePage = (req, res) => {
     userModel.getAllUsers((err, users) => {
@@ -23,34 +23,25 @@ const registerUser = (req, res) => {
 };
 const loginUser = (req, res) => {
     const { email, password } = req.body;
-    
+
     userModel.findUserByEmail(email, (err, user) => {
         if (err) {
             console.error('Error finding user:', err);
             return res.status(500).send('Error finding user');
         }
-        
+
         if (!user) {
-            return res.status(401).send('User not found');
+            return res.status(404).send('User not found');
         }
 
-        // Compare the entered password with the hashed password in the database
-        bcrypt.compare(password, user.password, (err, result) => {
-            if (err) {
-                console.error('Error comparing passwords:', err);
-                return res.status(500).send('Error comparing passwords');
-            }
-
-            if (result) {
-                // Successful login
-                res.send('Login successful!'); // Redirect or render a success page
-            } else {
-                // Incorrect password
-                res.status(401).send('Incorrect password');
-            }
-        });
+        if (user.password === password) {
+            return res.send('User login successful!');
+        } else {
+            return res.status(401).send('User not authorized');
+        }
     });
 };
+
 
 module.exports = {
     renderHomePage,
