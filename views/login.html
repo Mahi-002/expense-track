@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/index.css"> <!-- Link to your existing CSS file -->
+    <script src="login.js" defer></script> <!-- Link to the external JavaScript file for login -->
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="POST" id="form">
+        <div class="box">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit" id="bt">Login</button>
+        </div>
+    </form>
+    <a href="/">New User? Signup Here</a> <!-- Link back to the signup page -->
+</body>
+</html>
