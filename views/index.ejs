@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <form action="/register" method="POST" id="form">
+        <div class="box">
+            <label for="username">Username:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        <button type="submit" id="bt">Register</button>
+    </div>
+    </form>
+    <a href="#">Existing User</a>
+    <!-- <h2>Registered Users</h2>
+    <div class="box2">
+        <ul id="user-list">
+            <% users.forEach(user => { %>
+                <li><%= user.name %> - <%= user.email %></li>
+            <% }); %>
+        </ul>
+    </div>
+    -->
+
+    <script>
+        // Handle form submission
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+            const data = new URLSearchParams(formData).toString();
+
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data,
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reload the page to fetch updated user list
+                    window.location.reload();
+                } else {
+                    console.error('Error registering user');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
