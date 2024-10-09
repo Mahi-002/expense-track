@@ -39,7 +39,7 @@ const loginUser = (req, res) => {
             }
 
             if (isMatch) {
-                return res.redirect('./expense')
+                return res.redirect('./expense.html')
             } else {
                 return res.status(401).send('Incorrect password');
             }
