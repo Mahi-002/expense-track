@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         expenseList.innerHTML = ''; // Clear the list first
         expenses.forEach(expense => {
             const li = document.createElement('li');
+            li.id='exli';
             li.textContent = `${expense.description} - ${expense.amount} [${expense.category}]`;
 
             // Create a delete button

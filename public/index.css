@@ -80,3 +80,31 @@ li {
     justify-content: center;
     align-items: center;
  }
+ #exid{
+    background-color: rgb(17, 152, 152);
+    border: 2px solid black;
+    margin: 5px;
+ }
+ #expenseForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+ }
+ #exbt{
+    background-color: rgb(198, 97, 169); 
+    cursor: pointer;
+    border: 1px solid #333;
+    padding: 10px;
+}
+#expenseList{
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(174, 171, 169);
+    border: 1px solid #333;
+}
+#exli{
+align-items: center;
+justify-content: space-between;
+}

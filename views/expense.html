@@ -8,7 +8,7 @@
     <script src="expense.js" defer></script> 
 </head>
 <body>
-    <h1>Expense Tracker</h1>
+    <h1 id="exid">Expense Tracker</h1>
     <form id="expenseForm">
         <div>
             <label for="amount">Amount Spent:</label>
@@ -27,7 +27,7 @@
                 <option value="Other">Other</option>
             </select>
         </div>
-        <button type="submit">Add Expense</button>
+        <button type="submit" id="exbt">Add Expense</button>
     </form>
 
     <h2>Expenses</h2>
